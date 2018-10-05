@@ -12,16 +12,21 @@ h1 {
 input.play-game {
   display: block;
   margin: 1rem auto;
+  color: lightsalmon;
+}
+input.play-game:hover {
+  color: rgb(122, 239, 255);
 }
 
 #introduction {
   position: absolute;
   margin-top: 0px;
   color: rgb(240, 71, 255);
-  background: darkslategrey;
+  background: rgb(31, 34, 34);
   text-align: center;
   vertical-align: center;
-  height: 500px;
+  height: 50vh;
+  min-height: 400px;
   width: 100vw;
   opacity: 1;
   transition: opacity 0.5s;
