@@ -1,4 +1,4 @@
-let currentPlayer = 'X'
+let $_currentPlayer = 'X'
 let $_openingState = true;
 
 function displayOpeningBanner(openingState) {
@@ -22,6 +22,6 @@ function playGame() {
 };
 
 function takeTurn(element) {
-  document.getElementById(element).textContent = currentPlayer;
-  currentPlayer == 'X' ? currentPlayer = 'O' : currentPlayer = 'X';
+  document.getElementById(element).textContent = $_currentPlayer;
+  $_currentPlayer == 'X' ? $_currentPlayer = 'O' : $_currentPlayer = 'X';
 }
