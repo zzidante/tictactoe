@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+      <h1>Tic Tac Toe</h1>
+      <input 
+        type = "button" 
+        onclick = "playGame();" 
+        name = "play" 
+        value = "Play Game" 
+      />
+
+      <section id="introduction">
+        Can you beat the Matrix?
+      </section>
+
+      <section class="game-board">
+        <div 
+          id="0"
+          name="0"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        ></div>
+        
+        <div 
+          id="1"
+          name="1"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        <div 
+          id="2"
+          name="2"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+
+        <div 
+          id="3"
+          name="3"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        <div 
+          id="4"
+          name="4"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        <div 
+          id="5"
+          name="5"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        
+        <div 
+          id="6"
+          name="6"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        <div 
+          id="7"
+          name="7"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+        <div 
+          id="8"
+          name="8"
+          class="game-square"
+          onclick = "takeTurn(this.id);"
+        /></div>
+        
+      </section>
+  </main>
+</body>
+</html>

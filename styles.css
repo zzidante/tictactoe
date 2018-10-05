@@ -1,0 +1,55 @@
+main {
+  background: black;
+  color: greenyellow;
+}
+
+h1 {
+  color: greenyellow;
+  text-align: center;
+}
+
+#introduction {
+  position: absolute;
+  margin-top: 0px;
+  color: rgb(240, 71, 255);
+  background: darkslategrey;
+  text-align: center;
+  vertical-align: center;
+  height: 500px;
+  width: 100vw;
+  opacity: 1;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+
+#introduction.fade {
+  opacity: 0;
+  height: 500px;
+  width: 100vw;
+}
+
+#introduction.disappear {
+  height: 0;
+  width: 0;
+}
+
+.game-board {
+  display:  grid;
+  grid-template-columns: repeat(3, minmax(10vw, 10vw));
+  grid-template-rows: repeat(3,minmax(10vw, 10vw));
+  gap: 1vw;
+
+  max-width: 32vw;
+  margin: auto;
+  min-width: 20vw;
+}
+
+.game-square {
+  border: 1px greenyellow solid;
+  border-radius: 6px;
+  align-items: center;
+  justify-items: center;
+
+  color: red;
+  font-size: 3rem;
+}
