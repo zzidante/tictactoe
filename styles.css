@@ -18,13 +18,17 @@ input.play-game:hover {
   color: rgb(122, 239, 255);
 }
 
+input.play-game:focus {
+  color: rgb(0, 225, 255);
+}
+
 #introduction {
   position: absolute;
   margin-top: 0px;
   color: rgb(240, 71, 255);
   background: rgb(31, 34, 34);
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
   height: 50vh;
   min-height: 400px;
   width: 100vw;
@@ -35,7 +39,7 @@ input.play-game:hover {
 
 #introduction.fade {
   opacity: 0;
-  height: 500px;
+  height: 50vh;
   width: 100vw;
 }
 
@@ -51,8 +55,9 @@ input.play-game:hover {
   gap: 1vw;
 
   max-width: 32vw;
-  margin: auto;
+  margin: 1vw auto 2vw;
   min-width: 20vw;
+
 }
 
 .game-square {
