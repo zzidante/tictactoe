@@ -1,11 +1,17 @@
 main {
   background: black;
   color: greenyellow;
+  min-height: 100vh;
 }
 
 h1 {
   color: greenyellow;
   text-align: center;
+}
+
+input.play-game {
+  display: block;
+  margin: 1rem auto;
 }
 
 #introduction {
