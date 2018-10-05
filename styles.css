@@ -30,16 +30,19 @@ input.play-game:focus {
   text-align: center;
   vertical-align: middle;
   height: 50vh;
-  min-height: 400px;
+  min-height: 300px;
   width: 100vw;
   opacity: 1;
   transition: opacity 0.5s;
+  padding-top: 5vw;
   z-index: 1;
 }
 
 #introduction.fade {
   opacity: 0;
   height: 50vh;
+  min-height: 300px;  
+  padding-top: 5vw;
   width: 100vw;
 }
 
