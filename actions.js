@@ -34,6 +34,8 @@ function clearBoard() {
 
   for(i = 0; i < gameSquares.length; i++) {
       gameSquares[i].innerText = ' '
+      gameSquares[i].classList.remove("player-o");
+      gameSquares[i].classList.remove("player-x");
   }
 };
 
