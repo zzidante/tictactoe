@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="main.js"></script>
+
+  <!-- scripts -->
+  <script src="globals.js"></script>
+  <script src="actions.js"></script>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Righteous" rel="stylesheet">
+
+  <!-- styles -->
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="styles.css">
@@ -13,13 +21,13 @@
 <body>
   <main>
       <h1>Tic Tac Toe</h1>
-      <input 
+      <input
         id = "playGame"
         class = "play-game"
-        type = "button" 
-        onclick = "playGame();" 
-        name = "play" 
-        value = "Play Game" 
+        type = "button"
+        onclick = "playGame(event);"
+        name = "play"
+        value = "Play Game"
       />
 
       <section id="introduction">
@@ -27,70 +35,70 @@
       </section>
 
       <section class="game-board">
-        <div 
+        <div
           id="0"
           name="0"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         ></div>
-        
-        <div 
+
+        <div
           id="1"
           name="1"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        <div 
+
+        <div
           id="2"
           name="2"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
 
-        <div 
+        <div
           id="3"
           name="3"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        <div 
+
+        <div
           id="4"
           name="4"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        <div 
+
+        <div
           id="5"
           name="5"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        
-        <div 
+
+
+        <div
           id="6"
           name="6"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        <div 
+
+        <div
           id="7"
           name="7"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
-        <div 
+
+        <div
           id="8"
           name="8"
           class="game-square"
-          onclick = "takeTurn(this.id);"
+          onclick = "takeTurn(event, this.id);"
         /></div>
-        
+
       </section>
   </main>
 </body>
