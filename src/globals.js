@@ -1,4 +1,4 @@
-const $_ = {
+const globals = {
   boardState: {
     "0": 0,
     "1": 1,
@@ -51,5 +51,5 @@ function gameState(action, value) {
   return this;
 }
 
-let getGameState = gameState;
-let setGameState = gameState(action, value)
+// let getGameState = gameState;
+// let setGameState = gameState(action, value)

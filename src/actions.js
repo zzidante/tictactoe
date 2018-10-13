@@ -1,17 +1,20 @@
-function playGame() {
-  startGame($_.openingState);
-};
+// outside file dependencies
+const DOM = getDomComponent;
+const $_ = globals;
 
-function startGame(openingState) {
-  if (openingState) {
-    startScreen()
+// game play
+function playGame() { renderState($_.openingState) };
+
+function renderState(state) {
+  if (state) {
+    startScreenState()
   } else {
     restart()
   };
 }
 
-function startScreen() {
-  const helloMessage = document.getElementById("introduction");
+function startScreenState() {
+  const helloMessage = DOM({name: 'introduction', getType: 'id'});
 
   helloMessage.innerText = ' '
   helloMessage.classList.toggle('fade');
@@ -20,7 +23,7 @@ function startScreen() {
 }
 
 function restart() {
-  const helloMessage = document.getElementById("introduction");
+  const helloMessage = DOM({name: 'introduction', getType: 'id'});
 
   helloMessage.classList.remove("disappear")
   helloMessage.classList.toggle('fade');
@@ -30,7 +33,7 @@ function restart() {
 }
 
 function clearBoard() {
-  const gameSquares = document.getElementsByClassName("game-square");
+  const gameSquares = DOM({name: 'game-square', getType: 'class'});
 
   for(i = 0; i < gameSquares.length; i++) {
       gameSquares[i].innerText = ' '
@@ -40,14 +43,13 @@ function clearBoard() {
 };
 
 function takeTurn(event, elementName) {
-  const playedOnSquare = document.getElementById(elementName)
-  const empty = playedOnSquare.innerText == '';
+  this.playedOnSquare = DOM({name: elementName, getType: 'id'});
+  this.empty = this.playedOnSquare.innerText == '';
 
-  const switchTurn = function() {
-    playedOnSquare.textContent = $_.currentPlayer;
-    playedOnSquare.className += ` player-${$_.currentPlayer.toLowerCase()}`;
-    console.log($_.boardState)
-
+  this.switchTurn = () => {
+    this.playedOnSquare.textContent = $_.currentPlayer;
+    this.playedOnSquare.className += ` player-${$_.currentPlayer.toLowerCase()}`;
+    
     if ($_.currentPlayer == 'X') {
       // $_.boardState[elementName] = $_.currentPlayer
       $_.currentPlayer = 'O'
@@ -55,7 +57,8 @@ function takeTurn(event, elementName) {
       // $_.boardState[elementName] = $_.currentPlayer
       $_.currentPlayer = 'X';
     }
+    console.log($_.boardState)
   }
 
-  if (empty) { switchTurn(event, elementName) }
+  if (this.empty) { this.switchTurn(event, elementName) }
 }
