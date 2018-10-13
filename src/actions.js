@@ -6,11 +6,12 @@ const $_ = gameState();
 function playGame() { 
   const introductionCard = DOM({name: 'introduction', getType: 'id'});
   const gameSquares = DOM({name: 'game-square', getType: 'class'});
+  const delayTimeForAnimation = 500 + 1;
 
   this.startScreenState = () => {
     introductionCard.innerText = ' '
     introductionCard.classList.toggle('fade');
-    setTimeout(() => { introductionCard.classList.toggle('disappear'); }, 501);
+    setTimeout(() => { introductionCard.classList.toggle('disappear'); }, delayTimeForAnimation);
     $_.openingState = false;
   }
 
