@@ -4,17 +4,17 @@ const $_ = gameState();
 
 // game actions
 function playGame() { 
-  const helloMessage = DOM({name: 'introduction', getType: 'id'});
+  const introductionCard = DOM({name: 'introduction', getType: 'id'});
   const gameSquares = DOM({name: 'game-square', getType: 'class'});
 
   this.startScreenState = () => {
-    helloMessage.innerText = ' '
-    helloMessage.classList.toggle('fade');
-    setTimeout(() => { helloMessage.classList.toggle('disappear'); }, 501);
+    introductionCard.innerText = ' '
+    introductionCard.classList.toggle('fade');
+    setTimeout(() => { introductionCard.classList.toggle('disappear'); }, 501);
     $_.openingState = false;
   }
 
-  this.clearBoard = () => {
+  this.clearVisualBoard = () => {
     for(i = 0; i < gameSquares.length; i++) {
       gameSquares[i].innerText = ' '
       gameSquares[i].classList.remove("player-o");
@@ -23,15 +23,13 @@ function playGame() {
   };
 
   this.restart = () => {
-    helloMessage.classList.remove("disappear")
-    helloMessage.classList.toggle('fade');
-    helloMessage.innerText = 'Can you beat the Matrix?'
+    introductionCard.classList.remove("disappear")
+    introductionCard.classList.toggle('fade');
+    introductionCard.innerText = 'Can you beat the Matrix?'
+  
     $_.openingState = true;
-    console.log($_.boardState)
-    $_.pristineBoardState();
-    console.log('clear')
-    this.clearBoard();
-    console.log($_.boardState)
+    $_.pristineBoardState();    
+    this.clearVisualBoard();
   }
 
   this.renderState = (state) => {
