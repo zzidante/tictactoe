@@ -30,11 +30,7 @@ function gameState(action, type) {
     return this.boardState; // this worked when it was just 'boardState' -> need to test this now
   }
 
-  this.playMove = function(space, player) {
-    this.boardState[space] = player;
-  }
-
-  this.playMove.bind(this)
+  this.updatePlayState.bind(this)
   this.pristineBoardState.bind(this)
 
   return this;
