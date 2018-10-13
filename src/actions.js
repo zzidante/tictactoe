@@ -1,8 +1,8 @@
 // outside file dependencies
 const DOM = getDomComponent;
-const $_ = globals;
+const $_ = gameState();
 
-// game play
+// game actions
 function playGame() { 
   const helloMessage = DOM({name: 'introduction', getType: 'id'});
   const gameSquares = DOM({name: 'game-square', getType: 'class'});
@@ -16,9 +16,9 @@ function playGame() {
 
   this.clearBoard = () => {
     for(i = 0; i < gameSquares.length; i++) {
-        gameSquares[i].innerText = ' '
-        gameSquares[i].classList.remove("player-o");
-        gameSquares[i].classList.remove("player-x");
+      gameSquares[i].innerText = ' '
+      gameSquares[i].classList.remove("player-o");
+      gameSquares[i].classList.remove("player-x");
     }
   };
 
@@ -27,7 +27,11 @@ function playGame() {
     helloMessage.classList.toggle('fade');
     helloMessage.innerText = 'Can you beat the Matrix?'
     $_.openingState = true;
+    console.log($_.boardState)
+    $_.pristineBoardState();
+    console.log('clear')
     this.clearBoard();
+    console.log($_.boardState)
   }
 
   this.renderState = (state) => {
@@ -37,27 +41,20 @@ function playGame() {
       this.restart()
     };
   }
-  
+
   this.renderState($_.openingState) 
 };
 
 function takeTurn(event, elementName) {
-  this.playedOnSquare = DOM({name: elementName, getType: 'id'});
-  this.empty = this.playedOnSquare.innerText == '';
+  const claimPendingSquare = DOM({name: elementName, getType: 'id'});
 
-  this.switchTurn = () => {
-    this.playedOnSquare.textContent = $_.currentPlayer;
-    this.playedOnSquare.className += ` player-${$_.currentPlayer.toLowerCase()}`;
-    
-    if ($_.currentPlayer == 'X') {
-      // $_.boardState[elementName] = $_.currentPlayer
-      $_.currentPlayer = 'O'
-    } else {
-      // $_.boardState[elementName] = $_.currentPlayer
-      $_.currentPlayer = 'X';
-    }
-    console.log($_.boardState)
+  this.placeClaimProceedTurn = () => {
+    claimPendingSquare.textContent = $_.currentPlayer;
+    claimPendingSquare.className += ` player-${$_.currentPlayer.toLowerCase()}`;
+    $_.updatePlayState(
+      { squareId: elementName, currentPlayer: $_.currentPlayer }
+    )
   }
 
-  if (this.empty) { this.switchTurn(event, elementName) }
+  if (claimPendingSquare.innerText == '') { this.placeClaimProceedTurn() }
 }
